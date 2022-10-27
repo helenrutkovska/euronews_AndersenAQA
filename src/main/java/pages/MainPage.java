@@ -22,4 +22,8 @@ public class MainPage {
         driver.findElement(By.xpath("//main[@id='enw-main-content']")).isDisplayed();
         return true;
     }
+
+    public void clickContact() {
+        driver.findElement(By.xpath("//a[normalize-space()='Contact']")).click();
+    }
 }

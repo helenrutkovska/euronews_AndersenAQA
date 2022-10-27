@@ -45,4 +45,23 @@ public class NewslettersPage {
         driver.findElement(By.xpath("//div[@class='wp-site-blocks']")).isDisplayed();
         return true;
     }
+
+    public void chooseGreenSubscriptionPlan() {
+        driver.findElement(By.xpath("//label[@for='34470'][normalize-space()='Select this newsletter']")).click();
+    }
+
+    public boolean isChosenBriefingPlan() {
+        driver.findElement(By.xpath("//*[contains(@label, '34433') and contains(text(), 'hidden')]")).isDisplayed();
+        return true;
+    }
+
+    public boolean isChosenTheWatchPlan() {
+        driver.findElement(By.xpath("//*[contains(@label, '34422') and contains(text(), 'hidden')]")).isDisplayed();
+        return true;
+    }
+
+    public boolean isChosenGreenPlan() {
+        driver.findElement(By.xpath("//*[contains(@label, '34470') and contains(text(), 'hidden')]")).isDisplayed();
+        return true;
+    }
 }
