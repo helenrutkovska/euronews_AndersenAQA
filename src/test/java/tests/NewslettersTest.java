@@ -1,8 +1,10 @@
 package tests;
 
-import jdk.jpackage.internal.Log;
+import io.qameta.allure.Description;
+import io.qameta.allure.Issue;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import pages.ContactPage;
 import pages.MainPage;
@@ -10,6 +12,7 @@ import pages.NewslettersPage;
 import pages.SuccessfulSubscriptionPage;
 import utils.WebDriverSetup;
 
+@ExtendWith(TestListener.class)
 public class NewslettersTest extends BaseTest {
     WebDriverSetup wds = new WebDriverSetup();
     WebDriver driver = wds.driverSettings();
@@ -22,17 +25,17 @@ public class NewslettersTest extends BaseTest {
     ContactPage contactPage = new ContactPage(driver);
 
     @Test
+    @Issue("1")
+    @Description("Test Case 1. Opening the preview and signing up for the plan")
     public void NewslettersTestPositive() {
         driver.get(homePage);
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle, expectedTitle);
         Assert.assertTrue(mainPage.isDisplayed());
-        Log.info("The Main Page is loaded");
 
         mainPage.clickSubmitAgreement();
         mainPage.clickNewsletters();
         Assert.assertTrue(newslettersPage.isDisplayed());
-        Log.info("The Newsletters Page is loaded");
 
         newslettersPage.clickBriefingPlanPreview();
         newslettersPage.clickClosePreview();
@@ -45,6 +48,8 @@ public class NewslettersTest extends BaseTest {
     }
 
     @Test
+    @Issue("2")
+    @Description("Test Case 2. Opening the preview and signing up for the plan")
     public void NewsletterSignUpTestNegative() {
         driver.get(homePage);
         String actualTitle = driver.getTitle();
@@ -66,6 +71,8 @@ public class NewslettersTest extends BaseTest {
     }
 
     @Test
+    @Issue("3")
+    @Description("Test Case 3. Signing up for three plans")
     public void ThreeNewsletterPlansSignUpTestPositive() {
         driver.get(homePage);
         String actualTitle = driver.getTitle();
@@ -90,6 +97,8 @@ public class NewslettersTest extends BaseTest {
     }
 
     @Test
+    @Issue("4")
+    @Description("Test Case 4. Comparing contact info")
     public void ContactInfoTestPositive() {
         driver.get(homePage);
         String actualTitle = driver.getTitle();
