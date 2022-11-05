@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import static pages.PageLocators.*;
 
 public class NewslettersPage {
     private WebDriver driver;
@@ -14,7 +15,7 @@ public class NewslettersPage {
     public static String title;
 
     public void clickBriefingPlanPreview() {
-        driver.findElement(By.xpath("//a[@href='#the-briefing_previews']")).click();
+        driver.findElement(SELECT_NEWSLETTER).click();
     }
 
     public void clickClosePreview() {
@@ -22,7 +23,7 @@ public class NewslettersPage {
     }
 
     public void chooseBriefingSubscriptionPlan() {
-        driver.findElement(By.xpath("//label[@for='34433'][normalize-space()='Select this newsletter']")).click();
+        driver.findElement(BRIEFING_PLAN).click();
     }
 
     public void enterEmail() {
@@ -47,21 +48,21 @@ public class NewslettersPage {
     }
 
     public void chooseGreenSubscriptionPlan() {
-        driver.findElement(By.xpath("//label[@for='34470'][normalize-space()='Select this newsletter']")).click();
+        driver.findElement(GREEN_PLAN).click();
     }
 
     public boolean isChosenBriefingPlan() {
-        driver.findElement(By.xpath("//*[contains(@label, '34433') and contains(text(), 'hidden')]")).isDisplayed();
+        driver.findElement(BRIEFING_PLAN).isDisplayed();
         return true;
     }
 
     public boolean isChosenTheWatchPlan() {
-        driver.findElement(By.xpath("//*[contains(@label, '34422') and contains(text(), 'hidden')]")).isDisplayed();
+        driver.findElement(WATCH_PLAN).isDisplayed();
         return true;
     }
 
     public boolean isChosenGreenPlan() {
-        driver.findElement(By.xpath("//*[contains(@label, '34470') and contains(text(), 'hidden')]")).isDisplayed();
+        driver.findElement(GREEN_PLAN).isDisplayed();
         return true;
     }
 }

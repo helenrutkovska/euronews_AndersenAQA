@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static pages.PageLocators.*;
+
 public class MainPage {
     private WebDriver driver;
 
@@ -11,19 +13,19 @@ public class MainPage {
     }
 
     public void clickSubmitAgreement() {
-        driver.findElement(By.xpath("//button[@id='didomi-notice-agree-button']")).click();
+        driver.findElement(AGREE_BUTTON).click();
     }
 
     public void clickNewsletters() {
-        driver.findElement(By.xpath("//li[@class='c-internal-links__item']//a[@aria-label='Newsletters']")).click();
+        driver.findElement(NEWSLETTER_MENU_LiNK).click();
     }
 
     public boolean isDisplayed() {
-        driver.findElement(By.xpath("//main[@id='enw-main-content']")).isDisplayed();
+        driver.findElement(MAIN_CONTENT).isDisplayed();
         return true;
     }
 
     public void clickContact() {
-        driver.findElement(By.xpath("//a[normalize-space()='Contact']")).click();
+        driver.findElement(CONTACT_MENU_LINK).click();
     }
 }

@@ -1,7 +1,8 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import static pages.PageLocators.*;
 
 public class ContactPage {
     private WebDriver driver;
@@ -10,16 +11,17 @@ public class ContactPage {
         this.driver = driver;
     }
 
-    public boolean isDisplayed() {
-        driver.findElement(By.xpath("//form[@id='form_contact']")).isDisplayed();
+
+    public boolean isDisplayed(String ) {
+        driver.findElement(CONTACT_FORM).isDisplayed();
         return true;
     }
 
     public void clickOfficeInParis() {
-        driver.findElement(By.xpath("//button[normalize-space()='Paris']")).click();
+        driver.findElement(OFFICE_PARIS_BUTTON).click();
     }
 
     public String getPhoneNumberOfficeInParis() {
-        return driver.findElement(By.xpath("//div[@id='bannerR'])/*[contains(text(), 'Tel.')]")).getText();
+        return driver.findElement(OFFICE_PARIS_PHONE).getText();
     }
 }
